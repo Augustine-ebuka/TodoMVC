@@ -16,7 +16,8 @@ public function index()
     try {
         $client = new Client();
         $api_key = env('API_KEY');
-        $response = $client->get('http://localhost:5000/api/v1/todo', [
+        $root_url = env('ROOT_URL');
+        $response = $client->get($root_url, [
             'headers' => [
                 'Authorization' => $api_key,
                 'Accept' => 'application/json',
