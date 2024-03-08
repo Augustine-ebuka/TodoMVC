@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 Route::get('/items', [todoController::class, 'index']);
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'guest'], function(){
     Route::get('/todo', [todoController::class, 'index']);
     Route::post('/todo/create',[todoController::class, 'store']);
     Route::put('/todo/{id}' , [todoController::class, 'update']);
