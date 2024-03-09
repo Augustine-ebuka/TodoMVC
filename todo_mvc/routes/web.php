@@ -24,7 +24,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/items', [todoController::class, 'index']);
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/todo', [todoController::class, 'index']);
+    Route::get('/todo/{id}', [todoController::class, 'show']);
     Route::post('/todo/create',[todoController::class, 'store']);
-    Route::put('/todo/{id}' , [todoController::class, 'update']);
+    Route::patch('/todo/{id}' , [todoController::class, 'update']);
     Route::delete('/todo/{id}', [todoController::class, 'destroy'] );
 });
