@@ -39,24 +39,27 @@
       <div class="col">
         <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
           <div class="card-body py-4 px-4 px-md-5">
-
             <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
               <i class="fas fa-check-square me-1"></i>
-              <u>My Todo-s</u>
+              My Todo
             </p>
 
             <div class="pb-2">
               <div class="card">
                 <div class="card-body">
-                  <div class="d-flex flex-row align-items-center">
-                    <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1"
-                      placeholder="Add new...">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Set due date"><i
-                        class="fas fa-calendar-alt fa-lg me-3"></i></a>
-                    <div>
-                      <button type="button" class="btn btn-primary">Add</button>
-                    </div>
-                  </div>
+                <form id="todoForm" method="POST">
+                      @csrf
+                      <div class="d-flex flex-row align-items-center">
+                          <input type="text" class="form-control form-control-lg" name="todo" id="exampleFormControlInput1"
+                              placeholder="Add new...">
+                          <a href="#!" data-mdb-toggle="tooltip" title="Set due date"><i
+                                  class="fas fa-calendar-alt fa-lg me-3"></i></a>
+                          <div>
+                              <button type="submit" class="btn btn-primary">Add</button>
+                          </div>
+                      </div>
+                  </form>
+
                 </div>
               </div>
             </div>

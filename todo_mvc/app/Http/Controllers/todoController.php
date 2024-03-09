@@ -64,6 +64,7 @@ public function index()
             ]);
     
             $data = json_decode($response->getBody(), true);
+            
             return response()->json(['message' => 'Successful creation of todo!', 'data' => $data]);
     
         } catch (RequestException $e) {

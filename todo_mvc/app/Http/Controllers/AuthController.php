@@ -24,8 +24,7 @@ class AuthController extends Controller
  
         $user->save();
         
-        //this will Redirect to the login page after successful registration
-        return redirect()->route('login')->with('success', 'Register successfully. You can now log in.');
+        return response()->json(['message'=>"success",'user'=>$user]);
       
     }
  
@@ -34,24 +33,27 @@ class AuthController extends Controller
         return view('login');
     }
  
+
     public function loginPost(Request $request)
     {
-        $credetials = [
+        $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
- 
-        if (Auth::attempt($credetials)) {
-            return redirect('/home')->with('success', 'Login Success');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            return response()->json(['message' => 'Login success', 'user' => $user]);
         }
- 
-        return back()->with('error', 'Error Email or Password');
+
+        return response()->json(['message' => 'Invalid credentials'], 401);
     }
+
  
     public function logout()
     {
         Auth::logout();
  
-        return redirect()->route('login');
+        return response()->json(['message' => 'Logout success']);
     }
 }
