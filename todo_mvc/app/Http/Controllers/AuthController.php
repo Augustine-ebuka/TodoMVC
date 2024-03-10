@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Hash;
  
 class AuthController extends Controller
 {
-    public function register()
-    {
-        return view('register');
-    }
+   
  
     public function registerPost(Request $request)
     {
@@ -28,11 +25,7 @@ class AuthController extends Controller
       
     }
  
-    public function login()
-    {
-        return view('login');
-    }
- 
+
 
     public function loginPost(Request $request)
     {
