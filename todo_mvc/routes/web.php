@@ -10,7 +10,7 @@ use App\Http\Controllers\todoController;
 
 // Routes for API (no guest middleware)
 Route::group(['prefix' => 'api'], function () {
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('api.register');
+    Route::post('/register', [AuthController::class, 'registerPost']);
     Route::post('/login', [AuthController::class, 'loginPost']);
     // Add other API routes as needed
 });
